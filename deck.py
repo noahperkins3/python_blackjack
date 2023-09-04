@@ -24,10 +24,3 @@ class Deck:
         res = self.deck[0]
         self.deck.remove(res)
         return res
-
-# testdeck = Deck()
-# testdeck.shuffle()
-
-# print(testdeck.__str__())
-# print(testdeck.pullTopCard().__str__())
-# print(testdeck.__str__())

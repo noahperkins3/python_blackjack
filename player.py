@@ -1,10 +1,8 @@
-import card
 
 class Player:
 
     def __init__(self, deck):
         self.deck = deck
-        self.starting_amount = 500
         self.total = 0
         self.hand = []
 
@@ -24,6 +22,8 @@ class Player:
 
     def resetDeck(self, deck):
         self.deck = deck
+        self.hand = []
+        self.total = 0
 
     def __str__(self):
         res = ''
@@ -58,6 +58,8 @@ class Dealer:
 
     def resetDeck(self, deck):
         self.deck = deck
+        self.hand = []
+        self.total = 0
 
     def __str__(self):
         res = ''

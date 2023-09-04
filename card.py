@@ -1,4 +1,3 @@
-import player
 
 class Card:
 
@@ -56,8 +55,3 @@ class Card:
             return res + u'\u2660'
         else:
             return 'invalid card!'
-
-    
-# diamond_card = Card('diamonds', 4)
-
-# print(diamond_card.__str__())
