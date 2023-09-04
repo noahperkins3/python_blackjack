@@ -66,6 +66,7 @@ def play():
                         print("The dealer stays.")
                         if new_dealer.getTotal() > 21:
                             print("The dealer busts, you win $" + str(bet_amount) + " :)")
+                            cash_amount += bet_amount
                         elif new_player.getTotal() > new_dealer.getTotal():
                             print("You win $" + str(bet_amount) + "!")
                             cash_amount += bet_amount
