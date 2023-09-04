@@ -34,7 +34,7 @@ class Card:
             case 'T':
                 return 10
             case 'A':
-                if player.total + 11 < 21:
+                if player.total + 11 <= 21:
                     return 11
                 else:
                     return 1
