@@ -14,12 +14,6 @@ class Player:
         self.hand.append(card)
         self.total += card.getValue(self)
 
-    def getHand(self):
-        return self.hand
-
-    def getTotal(self):
-        return self.total
-
     def resetDeck(self, deck):
         self.deck = deck
         self.hand = []
@@ -47,14 +41,8 @@ class Dealer:
         self.hand.append(card)
         self.total += card.getValue(self)
 
-    def getHand(self):
-        return self.hand
-
-    def getTotal(self):
-        return self.total
-    
-    def setHide(self, hide):
-        self.hide = hide
+    # def setHide(self, hide):
+    #     self.hide = hide
 
     def resetDeck(self, deck):
         self.deck = deck

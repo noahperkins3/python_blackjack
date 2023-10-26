@@ -4,7 +4,7 @@ import player
 thresh = 21
 
 def checkWin(new_player, new_dealer):
-    if new_player.getTotal() > new_dealer.getTotal() and new_player.getTotal() <= 21:
+    if new_player.total > new_dealer.total and new_player.total <= 21:
         return True
     else:
         return False
@@ -34,8 +34,8 @@ def play():
                 new_dealer.hit(new_deck.pullTopCard())
             print("You are dealt: " + new_player.__str__())
             print("The new_dealer is dealt: " + new_dealer.__str__())
-            if new_player.getTotal() == thresh:
-                if not new_dealer.getTotal() == thresh:
+            if new_player.total == thresh:
+                if not new_dealer.total == thresh:
                     print("Your starting hand is a blackjack, you win!")
                     cash_amount += bet_amount * 1.5
                 else:
@@ -48,9 +48,9 @@ def play():
                         hit_or_stay = input("Would you like to hit or stay? ")
                     if hit_or_stay == 'hit':
                         new_player.hit(new_deck.pullTopCard())
-                        print("You are dealt: " + new_player.getHand()[-1].__str__())
+                        print("You are dealt: " + new_player.hand[-1].__str__())
                         print("You now have: " + new_player.__str__())
-                        if new_player.getTotal() > thresh:
+                        if new_player.total > thresh:
                             print("Your hand value is over 21 and you lose " + str(bet_amount) + " :(")
                             cash_amount -= bet_amount
                             if cash_amount <= 0:
@@ -58,25 +58,25 @@ def play():
                                 running = False
                             game_over = True
                     elif hit_or_stay == 'stay':
-                        new_dealer.setHide(False)
+                        new_dealer.hide = False
                         print("The dealer has: " + new_dealer.__str__())
-                        while new_dealer.getTotal() <= 16:
+                        while new_dealer.total <= 16:
                             new_dealer.hit(new_deck.pullTopCard())
-                            print("The dealer hits and is dealt: " + new_dealer.getHand()[-1].__str__())
+                            print("The dealer hits and is dealt: " + new_dealer.hand[-1].__str__())
                         print("The dealer stays.")
-                        if new_dealer.getTotal() > 21:
+                        if new_dealer.total > 21:
                             print("The dealer busts, you win $" + str(bet_amount) + " :)")
                             cash_amount += bet_amount
-                        elif new_player.getTotal() > new_dealer.getTotal():
+                        elif new_player.total > new_dealer.total:
                             print("You win $" + str(bet_amount) + "!")
                             cash_amount += bet_amount
-                        elif new_player.getTotal() < new_dealer.getTotal():
+                        elif new_player.total < new_dealer.total:
                             print("The dealer wins and you lose $" + str(bet_amount) + " :(")
                             cash_amount -= bet_amount
                             if cash_amount <= 0:
                                 print("\nYou've ran out of money. Please restart the program to try again. See you!")
                                 running = False
-                        elif new_dealer.getTotal() == new_player.getTotal():
+                        elif new_dealer.total == new_player.total:
                             print("You tie. Your bet has been returned.")
                         game_over = True
         else:
